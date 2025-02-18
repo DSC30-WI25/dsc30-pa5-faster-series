@@ -64,51 +64,6 @@ public class BST<I, T>{
     }
 
 
-
-/************************************ GRADING CODE (DO NOT MODIFY) ************************************ */
-    /**
-     * Performs a pre-order traversal of the BST.
-     */
-    private void preOrderTraversal(BSTNode node, int[] idx, String[] arr, boolean dataFlag) {
-        // DO NOT CHANGE THIS. THIS FOR TESTING PURPOSES
-        if(node == null)
-            return;
-
-        if(dataFlag)
-            arr[idx[0]] = String.valueOf(node.getData());
-        else
-            arr[idx[0]] = String.valueOf(node.getIndex());
-        idx[0]++;
-        
-        preOrderTraversal(node.left, idx, arr, dataFlag);
-        preOrderTraversal(node.right, idx, arr, dataFlag);
-    }
-
-    /**
-     * Returns an array of data values in pre-order traversal order.
-     * @return A String array containing the data values of all nodes in pre-order order
-     */
-    public String[] getDataArray() {
-        /// DO NOT CHANGE THIS. THIS FOR TESTING PURPOSES
-        String[] dataArr = new String[size];
-        preOrderTraversal(this.root, new int[1], dataArr, true);
-        return dataArr;
-    }
-
-    /**
-     * Returns an array of index values in pre-order traversal order.
-     * @return A String array containing the index values of all nodes in pre-order order
-     */
-    public String[] getIndexArray() {
-        // DO NOT CHANGE THIS. THIS FOR TESTING PURPOSES
-        String[] indexArr = new String[size];
-        preOrderTraversal(this.root, new int[1], indexArr, false);
-        return indexArr;
-    }
-
-/*************************************************************************************** */
-
-
     /**
      * Performs an in-order traversal of the BST and records indices and data values.
      */
@@ -161,4 +116,49 @@ public class BST<I, T>{
     public void updateNode(I _index, T _newData) {
         // TODO
     }
+
+    
+/************************************ GRADING CODE (DO NOT MODIFY) ************************************ */
+    /**
+     * Performs a pre-order traversal of the BST.
+     */
+    private void preOrderTraversal(BSTNode node, int[] idx, String[] arr, boolean dataFlag) {
+        // DO NOT CHANGE THIS. THIS FOR TESTING PURPOSES
+        if(node == null)
+            return;
+
+        if(dataFlag)
+            arr[idx[0]] = String.valueOf(node.getData());
+        else
+            arr[idx[0]] = String.valueOf(node.getIndex());
+        idx[0]++;
+        
+        preOrderTraversal(node.left, idx, arr, dataFlag);
+        preOrderTraversal(node.right, idx, arr, dataFlag);
+    }
+
+    /**
+     * Returns an array of data values in pre-order traversal order.
+     * @return A String array containing the data values of all nodes in pre-order order
+     */
+    public String[] getDataArray() {
+        /// DO NOT CHANGE THIS. THIS FOR TESTING PURPOSES
+        String[] dataArr = new String[size];
+        preOrderTraversal(this.root, new int[1], dataArr, true);
+        return dataArr;
+    }
+
+    /**
+     * Returns an array of index values in pre-order traversal order.
+     * @return A String array containing the index values of all nodes in pre-order order
+     */
+    public String[] getIndexArray() {
+        // DO NOT CHANGE THIS. THIS FOR TESTING PURPOSES
+        String[] indexArr = new String[size];
+        preOrderTraversal(this.root, new int[1], indexArr, false);
+        return indexArr;
+    }
+
+/****************************************************************************************************** */
+
 }
